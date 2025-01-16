@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa206da79dadde13773daa69ff4a4f6c",
+    "content-hash": "0450a5c5c9f7f9b30cf77933c598b76c",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -71,6 +71,82 @@
                 "source": "https://github.com/AnourValar/eloquent-serialize/tree/1.2.27"
             },
             "time": "2024-11-30T08:27:24+00:00"
+        },
+        {
+            "name": "awcodes/palette",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awcodes/palette.git",
+                "reference": "82f56198149d9361108f8d2360fab12205f3f78d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awcodes/palette/zipball/82f56198149d9361108f8d2360fab12205f3f78d",
+                "reference": "82f56198149d9361108f8d2360fab12205f3f78d",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.4",
+                "pestphp/pest-plugin-livewire": "^2.1",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Palette": "Awcodes\\Palette\\Facades\\Palette"
+                    },
+                    "providers": [
+                        "Awcodes\\Palette\\PaletteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Awcodes\\Palette\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Weston",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A color picker field for Filament Forms that uses preset color palettes.",
+            "homepage": "https://github.com/awcodes/palette",
+            "keywords": [
+                "awcodes",
+                "color picker",
+                "laravel",
+                "palette"
+            ],
+            "support": {
+                "issues": "https://github.com/awcodes/palette/issues",
+                "source": "https://github.com/awcodes/palette"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/awcodes",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-19T18:49:43+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -7460,6 +7536,79 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wiebenieuwenhuis/filament-code-editor",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sweebee/filament-code-editor.git",
+                "reference": "e52e44d2e3b18780d07e9cc4a327e4e282bf3573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sweebee/filament-code-editor/zipball/e52e44d2e3b18780d07e9cc4a327e4e282bf3573",
+                "reference": "e52e44d2e3b18780d07e9cc4a327e4e282bf3573",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^11.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^8.1",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.34",
+                "pestphp/pest-plugin-laravel": "^2.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^10.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wiebenieuwenhuis\\FilamentCodeEditor\\FilamentCodeEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wiebenieuwenhuis\\FilamentCodeEditor\\": "src",
+                    "Wiebenieuwenhuis\\FilamentCodeEditor\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastiaan Kloos",
+                    "email": "sebastiaankloos@pm.me",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Wiebe Nieuwenhuis",
+                    "email": "info@wiebenieuwenhuis.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Code editor for Filament",
+            "homepage": "https://github.com/sweebee/filament-code-editor",
+            "keywords": [
+                "filament-code-editor",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/sweebee/filament-code-editor/tree/1.1.0"
+            },
+            "time": "2024-04-12T15:58:18+00:00"
         }
     ],
     "packages-dev": [
@@ -10636,7 +10785,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

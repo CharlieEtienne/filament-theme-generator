@@ -7,9 +7,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "awcodes/palette": "^1.0",
         "filament/filament": "^3.2",
         "laravel/framework": "^11.31",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "wiebenieuwenhuis/filament-code-editor": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
