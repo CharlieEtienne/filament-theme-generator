@@ -1,4 +1,4 @@
-# My first stream! 
+# Filament Theme Generator
 
 ## I'll try to build a Filament theme generator with Laravel
 
@@ -12,6 +12,7 @@
 - [x] Let users preview the theme
 - [x] Let users copy the theme (css or php)
 - [ ] Add color picker to let users customize the theme
+- [ ] Add syntax highlighting to the code preview
 
 ## Maybe Later
 
