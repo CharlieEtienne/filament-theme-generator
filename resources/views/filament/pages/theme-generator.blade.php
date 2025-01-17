@@ -7,7 +7,7 @@
         })
 
         theme = localStorage.getItem('theme') || 'system'    " class="fi-theme-switcher grid grid-flow-col gap-x-1">
-            <button aria-label="Enable light theme" type="button" x-on:click="(theme = 'light') && close()" x-tooltip="{
+            <button aria-label="Enable light theme" type="button" x-on:click="(theme = 'light')" x-tooltip="{
         content: 'Enable light theme',
         theme: $store.theme,
     }"
@@ -24,7 +24,7 @@
                 </svg><!--[if ENDBLOCK]><![endif]-->
             </button>
 
-            <button aria-label="Enable dark theme" type="button" x-on:click="(theme = 'dark') && close()" x-tooltip="{
+            <button aria-label="Enable dark theme" type="button" x-on:click="(theme = 'dark')" x-tooltip="{
         content: 'Enable dark theme',
         theme: $store.theme,
     }"
@@ -42,7 +42,7 @@
                 </svg><!--[if ENDBLOCK]><![endif]-->
             </button>
 
-            <button aria-label="Enable system theme" type="button" x-on:click="(theme = 'system') && close()" x-tooltip="{
+            <button aria-label="Enable system theme" type="button" x-on:click="(theme = 'system')" x-tooltip="{
         content: 'Enable system theme',
         theme: $store.theme,
     }"
