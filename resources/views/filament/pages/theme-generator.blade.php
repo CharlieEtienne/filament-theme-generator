@@ -71,8 +71,6 @@
 
         const css = document.getElementById('css');
 
-        css.innerHTML = 'test';
-
         function hexToRgb(hex) {
             const bigint = parseInt(hex.slice(1), 16);
             return {
