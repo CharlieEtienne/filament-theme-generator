@@ -11,8 +11,8 @@
   - [x] 2 palettes: background and accent
 - [x] Let users preview the theme
 - [x] Let users copy the theme (css or php)
+- [x] Add syntax highlighting to the code preview
 - [ ] Add color picker to let users customize the theme
-- [ ] Add syntax highlighting to the code preview
 
 ## Maybe Later
 

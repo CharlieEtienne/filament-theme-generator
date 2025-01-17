@@ -2,14 +2,13 @@
 
 namespace App\Filament\Pages;
 
+use App\Forms\Components\CodeBlock;
 use Awcodes\Palette\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Actions\Action;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -18,9 +17,6 @@ use Filament\Forms\Form;
 use Filament\Pages\Page;
 use Filament\Support\Colors\Color;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\HtmlString;
-use Illuminate\Validation\ValidationException;
 
 class ThemeGenerator extends Page implements HasForms
 {
@@ -161,7 +157,7 @@ class ThemeGenerator extends Page implements HasForms
                                 ]),
                             TagsInput::make('tags'),
                             Toggle::make('toggle')
-                            ->inline(false),
+                                ->inline(false),
                         ])
                         ->columns(2),
 
@@ -172,39 +168,33 @@ class ThemeGenerator extends Page implements HasForms
                                 ->tabs([
                                     Tabs\Tab::make('Panel Provider (PHP)')
                                         ->schema([
-//                                            Placeholder::make('php')
-//                                                ->content(fn() => new HtmlString('<pre class="bg-gray-800 text-white p-4 rounded-lg"><code id="php" class="hljs language-php"></code></pre>')),
-//
-                                            Textarea::make('php')
+                                            CodeBlock::make('php')
                                                 ->label('Panel Provider')
-                                                ->readOnly()
-                                                ->rows(20)
                                                 ->helperText('Paste this code in your Filament [PanelName]PanelProvider.php file')
+                                                ->language('php')
                                                 ->hintAction(fn() => Action::make('Copy')
                                                     ->icon('heroicon-s-clipboard')
-                                                    ->action(function ($livewire) {
+                                                    ->action(function ($livewire, $state) {
                                                         $livewire->js(
-                                                            'window.navigator.clipboard.writeText(document.getElementById("php").value);
-                                                            $tooltip( "Copied to clipboard", { timeout: 1500 });');
+                                                            'window.navigator.clipboard.writeText("' . url('/doc/' . $state) . '");
+                                                            $tooltip("' . __('Copied!') . '", { timeout: 1500 });'
+                                                        );
                                                     })
                                                 ),
                                         ]),
                                     Tabs\Tab::make('Custom Theme (CSS)')
                                         ->schema([
-//                                            Placeholder::make('css')
-//                                                ->content(fn() => new HtmlString('<pre class="bg-gray-800 text-white p-4 rounded-lg"><code id="css" class="hljs css"></code></pre>')),
-//
-                                            Textarea::make('css')
+                                            CodeBlock::make('css')
                                                 ->label('Theme CSS')
-                                                ->readOnly()
-                                                ->rows(20)
                                                 ->helperText('Paste this code in your Filament theme.css file')
+                                                ->language('css')
                                                 ->hintAction(fn() => Action::make('Copy')
                                                     ->icon('heroicon-s-clipboard')
-                                                    ->action(function ($livewire) {
+                                                    ->action(function ($livewire, $state) {
                                                         $livewire->js(
-                                                            'window.navigator.clipboard.writeText(document.getElementById("css").value);
-                                                            $tooltip( "Copied to clipboard", { timeout: 1500 }); ');
+                                                            'window.navigator.clipboard.writeText("' . url('/doc/' . $state) . '");
+                                                            $tooltip("' . __('Copied!') . '", { timeout: 1500 });'
+                                                        );
                                                     })
                                                 ),
                                         ]),

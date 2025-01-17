@@ -64,10 +64,18 @@
 
     {{ $this->form }}
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/mocha.min.css" integrity="sha512-OtRVA+0CtnuU6s7M6XDDpFm8p/+FbqTdeHV+XKIZ5TXjWvYrR0zc3Yi0QWL6+K+NYQeNba9Wf//91znzRbonig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/php.min.js" integrity="sha512-uSKj9vayq7XKzfzflBQdmCuLIzKtsmsv7jjfr85Z0GQxNyID1anc0GMYHsNMo93A0oaro6696CQ5Q00xvCpoBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js" integrity="sha512-fQhadp2Av4sRhTYd9TEggQW4NrosThwDUXIMLin90uepvmCZG0mRTdPVtHujrXD22qMTtdQlrAEdvWocezI8ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
 
         window.background = JSON.parse(`{!! json_encode($this->getBackgroundColors()['zinc']) !!}`);
         window.accent = JSON.parse(`{!! json_encode($this->getAccentColors()['amber']) !!}`);
+
+        updateTheme();
+        hljs.highlightAll();
 
         function hexToRgb(hex) {
             const bigint = parseInt(hex.slice(1), 16);
@@ -182,8 +190,14 @@
         ])
         // ...
     }`;
-                    css.value = cssCode;
-                    php.value = phpCode;
+                    css.innerHTML = cssCode;
+                    php.innerHTML = phpCode;
+
+                    css.removeAttribute('data-highlighted');
+                    php.removeAttribute('data-highlighted');
+
+                    hljs.highlightElement(css);
+                    hljs.highlightElement(php);
 
                 } else {
                     console.error('Elements with id "css" or "php" not found in the DOM.');
