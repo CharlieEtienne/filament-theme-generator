@@ -69,8 +69,6 @@
         window.background = JSON.parse(`{!! json_encode($this->getBackgroundColors()['zinc']) !!}`);
         window.accent = JSON.parse(`{!! json_encode($this->getAccentColors()['amber']) !!}`);
 
-        const css = document.getElementById('css');
-
         function hexToRgb(hex) {
             const bigint = parseInt(hex.slice(1), 16);
             return {
