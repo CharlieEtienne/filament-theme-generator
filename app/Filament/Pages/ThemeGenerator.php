@@ -9,6 +9,7 @@ use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -43,6 +44,7 @@ class ThemeGenerator extends Page implements HasForms
     public string $toggle = '1';
     public string $css;
     public string $php;
+    public string $my_text_input = 'Hello, World!';
 
     /**
      * @return array
@@ -88,50 +90,16 @@ class ThemeGenerator extends Page implements HasForms
     {
         return $form
             ->schema([
-
                     Section::make('Customize your theme')
                         ->schema([
 
                             ColorPicker::make('background')
                                 ->label('Background Color')
-                                ->colors($this->getBackgroundColors())
-                                ->live()
-                                ->extraAttributes(['id' => 'background'])
-                                ->afterStateUpdated(function ($livewire) {
-                                    $colors = json_encode($this->getBackgroundColors());
-                                    $livewire->js(
-                                        <<<JS
-                                        const colors = JSON.parse('$colors');
-                                        const color = document.querySelector('#background input[type="radio"]:checked').value;
-                                        const shades = colors[color];
-                                        previewTheme('gray', shades);
-                                        window.background = shades;
-                                        updateTheme();
-                                    JS
-                                    );
-                                }),
-
+                                ->colors($this->getBackgroundColors()),
 
                             ColorPicker::make('accent')
                                 ->label('Accent Color')
-                                ->colors($this->getAccentColors())
-                                ->live()
-                                ->extraAttributes(['id' => 'accent'])
-                                ->afterStateUpdated(function ($livewire) {
-                                    $colors = json_encode($this->getAccentColors());
-                                    $livewire->js(
-                                        <<<JS
-                                        const colors = JSON.parse('$colors');
-                                        const color = document.querySelector('#accent input[type="radio"]:checked').value;
-                                        const shades = colors[color];
-                                        previewTheme('primary', shades);
-                                        // const rgb = hexToRgb(color);
-                                        // const shades = generateShades(rgb);
-                                        window.accent = shades;
-                                        updateTheme();
-                                    JS
-                                    );
-                                }),
+                                ->colors($this->getAccentColors()),
                         ]),
 
                     Section::make('Preview')
