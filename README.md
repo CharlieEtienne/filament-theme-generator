@@ -12,7 +12,7 @@
 - [x] Let users preview the theme
 - [x] Let users copy the theme (css or php)
 - [x] Add syntax highlighting to the code preview
-- [ ] Add color picker to let users customize the theme
+- [x] Add color picker to let users customize the theme
 
 ## Maybe Later
 
