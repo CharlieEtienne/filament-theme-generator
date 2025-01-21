@@ -157,6 +157,7 @@ class ThemeGenerator extends Page implements HasForms
                                     Tabs\Tab::make('Panel Provider (PHP)')
                                         ->schema([
                                             CodeBlock::make('php')
+                                                ->dehydrated(false)
                                                 ->label('Panel Provider')
                                                 ->helperText('Paste this code in your Filament [PanelName]PanelProvider.php file')
                                                 ->language('php')
@@ -173,6 +174,7 @@ class ThemeGenerator extends Page implements HasForms
                                     Tabs\Tab::make('Custom Theme (CSS)')
                                         ->schema([
                                             CodeBlock::make('css')
+                                                ->dehydrated(false)
                                                 ->label('Theme CSS')
                                                 ->helperText('Paste this code in your Filament theme.css file')
                                                 ->language('css')
