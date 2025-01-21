@@ -70,15 +70,6 @@
             php: $wire.entangle('php'),
             css: $wire.entangle('css'),
        }"
-        @change="
-            cssEl = document.getElementById('css');
-            phpEl = document.getElementById('php');
-            cssEl.removeAttribute('data-highlighted');
-            phpEl.removeAttribute('data-highlighted');
-
-            hljs.highlightElement(cssEl);
-            hljs.highlightElement(phpEl);
-        "
     >
         {{ $this->form }}
 

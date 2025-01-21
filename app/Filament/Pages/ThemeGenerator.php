@@ -3,13 +3,14 @@
 namespace App\Filament\Pages;
 
 use App\Forms\Components\CodeBlock;
-use Awcodes\Palette\Forms\Components\ColorPicker;
+use Awcodes\Palette\Forms\Components\ColorPicker as PaletteColorPicker;
 use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -44,7 +45,6 @@ class ThemeGenerator extends Page implements HasForms
     public string $toggle = '1';
     public string $css;
     public string $php;
-    public string $my_text_input = 'Hello, World!';
 
     /**
      * @return array
@@ -92,14 +92,34 @@ class ThemeGenerator extends Page implements HasForms
             ->schema([
                     Section::make('Customize your theme')
                         ->schema([
+                            Tabs::make('tabs')
+                                ->contained(false)
+                                ->tabs([
+                                    Tabs\Tab::make('Use Tailwind palette')
+                                        ->schema([
+                                            PaletteColorPicker::make('background')
+                                                ->label('Background Color')
+                                                ->colors($this->getBackgroundColors()),
 
-                            ColorPicker::make('background')
-                                ->label('Background Color')
-                                ->colors($this->getBackgroundColors()),
+                                            PaletteColorPicker::make('accent')
+                                                ->label('Accent Color')
+                                                ->colors($this->getAccentColors()),
+                                            ]),
+                                    Tabs\Tab::make('Use custom colors')
+                                        ->schema([
+                                            Grid::make()
+                                                ->schema([
+                                                    ColorPicker::make('background')
+                                                        ->live(debounce: 250)
+                                                        ->label('Background Color'),
 
-                            ColorPicker::make('accent')
-                                ->label('Accent Color')
-                                ->colors($this->getAccentColors()),
+                                                    ColorPicker::make('accent')
+                                                        ->live(debounce: 250)
+                                                        ->label('Accent Color'),
+                                                ])->columns(['sm' => 2]),
+
+                                        ]),
+                                ]),
                         ]),
 
                     Section::make('Preview')
